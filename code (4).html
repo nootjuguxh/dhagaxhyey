@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Computer Science Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* --- CSS Styles --- */
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden; /* Clear floats */
+        }
+
+        /* Header */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center; /* Center the navigation */
+        }
+
+        nav h1 {
+            margin-bottom: 0.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: inline-block; /* Make the ul inline-block */
+
+        }
+
+        nav ul li {
+            display: inline; /* Display list items horizontally */
+            margin: 0 1rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;  /* Smooth transition for hover effect */
+        }
+
+        nav a:hover {
+            color: #ddd; /* Lighter color on hover */
+        }
+
+
+        /* Sections */
+        .section {
+            padding: 2rem 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: #333;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;  /* Vertically center content */
+            gap: 2rem; /* Space between image and text */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens*/
+            justify-content: center;
+        }
+
+        .profile-pic {
+            width: 150px; /* Adjust as needed */
+            height: 150px; /* Adjust as needed */
+            border-radius: 50%; /* Make it a circle */
+            object-fit: cover; /* Ensure the image covers the circle */
+            border: 3px solid #333;
+        }
+
+        .about-content p {
+          max-width: 700px;
+          text-align: justify;
+        }
+
+
+        /* Skills Section */
+        .skills-list ul {
+            list-style: none;
+             columns: 2; /* Display skills in two columns */
+            -webkit-columns: 2; /* For older browsers */
+            -moz-columns: 2;   /* For older browsers */
+        }
+        .skills-list li {
+          margin-bottom: 0.5rem;
+        }
+
+        /* Progress Bar Styles (Optional) - Requires Font Awesome */
+        /*
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+
+        .skill-bar {
+            background-color: #ddd;
+            height: 10px;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+        }
+
+        .skill-level {
+            background-color: #4CAF50;  Change color as desired 
+            height: 100%;
+            border-radius: 5px;
+        }
+        */
+
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);  /* Slight lift on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+        }
+
+
+        .project-card img {
+            width: 100%;
+            height: 200px; /* Fixed height for consistency */
+            object-fit: cover; /* Ensure images cover the area */
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            margin-bottom: 1rem;
+        }
+
+        .project-links a {
+            margin-right: 1rem;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .project-links a:hover {
+            color: #007bff; /* Or any other color */
+        }
+
+
+        /* Resume Section */
+        .button {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            border: none; /* Remove default button border */
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #555;
+        }
+
+
+        /* Contact Section */
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+             color: #007bff;
+        }
+
+        .contact-info i {
+           margin-right: 0.5rem;
+           width: 1.2em; /* Set a fixed width for consistent alignment */
+           text-align: center;
+        }
+
+
+
+        /* Contact Form Styles (Optional) */
+        /*
+        #contact-form {
+            margin-top: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        textarea {
+            resize: vertical;  Allow vertical resizing 
+        }
+        */
+
+
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem; /* Space between content and footer */
+        }
+
+        /* Media Queries for Responsiveness */
+
+        /* Smaller screens (phones) */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            nav ul {
+                display: block; /* Stack navigation items vertically */
+                text-align: center;
+            }
+
+            nav ul li {
+                display: block; /* Make list items block-level */
+                margin: 0.5rem 0;
+            }
+            .projects-grid {
+              grid-template-columns: 1fr; /* Single column layout for smaller screens */
+            }
+
+            .about-content {
+              flex-direction: column;
+            }
+
+            .skills-list ul {
+              columns: 1; /* Display skills in one column */
+              -webkit-columns: 1;
+              -moz-columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="container">
+                <h1>Your Name</h1>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <img src="your-photo.jpg" alt="Your Photo" class="profile-pic">
+                    <p>
+                        I am a passionate and driven Computer Science student at [Your University/College Name], currently in my [Year] year.  I'm particularly interested in [Your Areas of Interest, e.g.,  web development, machine learning, data science, game development, etc.]. I am eager to learn new technologies and contribute to innovative projects. I am proficient in [Mention Key Languages/Frameworks:  e.g., Python, Java, C++, JavaScript, React, etc.]. I am seeking [Internship/Job Opportunities] to gain practical experience and further develop my skills.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="container">
+                <h2>Technical Skills</h2>
+                <div class="skills-list">
+                    <ul>
+                        <li><strong>Programming Languages:</strong> Python, Java, C++, JavaScript, HTML, CSS, SQL </li>  <!-- Add your languages -->
+                        <li><strong>Frameworks/Libraries:</strong> React, Node.js,  Django/Flask (Python),  [Add others]</li> <!-- Add frameworks -->
+                        <li><strong>Databases:</strong>  MySQL, MongoDB, PostgreSQL</li>
+                        <li><strong>Tools:</strong> Git, Docker,  AWS/Azure/GCP (if applicable),  [Add others]</li>
+                        <li><strong>Operating Systems:</strong> Windows, macOS, Linux</li>
+                        <li><strong>Other:</strong> Data Structures & Algorithms, Object-Oriented Programming, [Add others]</li>
+                    </ul>
+
+                    <!-- You can optionally use a progress bar or skill-level indicator -->
+                    <!-- Example using Font Awesome (make sure you include the link in <head>): -->
+                    <!--
+                    <div class="skill-item">
+                        <span>Python</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%;"></div> 80%
+                        </div>
+                    </div>
+                   -->
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <img src="project1-screenshot.jpg" alt="Project 1 Screenshot">
+                        <h3>Project Title 1</h3>
+                        <p>A brief description of the project.  What problem did it solve? What technologies did you use? What were the key features?</p>
+                        <p><strong>Technologies Used:</strong> Python,  Flask,  HTML, CSS, JavaScript</p>
+                        <div class="project-links">
+                            <a href="link-to-github-repo" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="link-to-live-demo" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <img src="project2-screenshot.jpg" alt="Project 2 Screenshot">
+                        <h3>Project Title 2</h3>
+                        <p>Description of Project 2...</p>
+                        <p><strong>Technologies Used:</strong> Java,  Spring Boot,  MySQL</p>
+                        <div class="project-links">
+                            <a href="link-to-github-repo" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 (and add more as needed) -->
+                     <div class="project-card">
+                        <img src="project3-screenshot.jpg" alt="Project 3 Screenshot">
+                        <h3>Project Title 3</h3>
+                        <p>Description of Project 3...</p>
+                         <p><strong>Technologies Used:</strong> C++,  Unreal Engine (if applicable)</p>
+                        <div class="project-links">
+                            <a href="link-to-github-repo" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                             <a href="link-to-live-demo" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="resume" class="section">
+            <div class="container">
+                <h2>Resume</h2>
+                <p>Download my resume for more details about my education, experience, and skills.</p>
+                <a href="your-resume.pdf" class="button" download>Download Resume (PDF)</a>  <!--  Link to your PDF resume -->
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Contact Me</h2>
+                <p>Feel free to reach out to me!  I'm always open to discussing new opportunities and collaborations.</p>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                    <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="your-linkedin-profile-url" target="_blank" rel="noopener noreferrer">Your LinkedIn Profile</a></p>
+                    <p><i class="fab fa-github"></i> GitHub: <a href="your-github-profile-url" target="_blank" rel="noopener noreferrer">Your GitHub Profile</a></p>
+                    <!-- Add other contact methods as needed (e.g., Twitter, portfolio site, etc.) -->
+                </div>
+
+              <!--  <form id="contact-form" action="#" method="post">  Optionally add a contact form 
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="button">Send Message</button>
+                </form> -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- JavaScript ---
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Example:  Form submission handling (basic - doesn't send data)
+            // const form = document.getElementById('contact-form');
+            // if(form) { // Check if form exists to prevent errors if it's not used.
+            //   form.addEventListener('submit', function(event) {
+            //       event.preventDefault();  // Prevent actual form submission
+            //       alert('Form submitted! (This is a placeholder.  You need a backend to handle form data.)');
+            //       // In a real application, you'd send the form data to a server using AJAX (fetch or XMLHttpRequest).
+            //   });
+            // }
+        });
+    </script>
+</body>
+</html>
